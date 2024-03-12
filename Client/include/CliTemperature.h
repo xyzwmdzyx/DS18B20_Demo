@@ -14,7 +14,7 @@
 #ifndef CLIDSTEMP_H
 #define CLIDSTEMP_H
 
-#define W1_PATH "/home/wmd/code/mysys/bus/w1/devices/"
+#define W1_PATH "/sys/bus/w1/devices/"
 
 // 获取设备名称
 char *getDeviceName(int number);
