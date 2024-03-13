@@ -2,7 +2,7 @@
  *      Copyright:  (C) 2024 Company
  *                  All rights reserved.
  *
- *       Filename:  ServLogger.h
+ *       Filename:  Logger.h
  *    Description:  This file is a log system declare file.
  *
  *        Version:  1.0.0(2024年03月01日)
@@ -11,8 +11,8 @@
  *                 
  ********************************************************************************/
 
-#ifndef SERVLOGGER_H
-#define SERVLOGGER_H
+#ifndef LOGGER_H
+#define LOGGER_H
 
 // 日志文件最大为10MB
 #define LOGMAXSIZE	1024 * 1024 * 10

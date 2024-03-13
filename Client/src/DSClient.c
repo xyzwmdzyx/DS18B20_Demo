@@ -17,8 +17,8 @@
 #include <string.h>
 #include <time.h>
 #include <errno.h>
-#include "CliLogger.h"
-#include "CliSql.h"
+#include "Logger.h"
+#include "Sql.h"
 #include "CliParse.h"
 #include "CliTemperature.h"
 #include "CliSocket.h"

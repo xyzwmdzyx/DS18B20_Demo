@@ -2,7 +2,7 @@
  *      Copyright:  (C) 2024 Company
  *                  All rights reserved.
  *
- *       Filename:  ServSql.h
+ *       Filename:  Sql.h
  *    Description:  This file is a sql system declare file.
  *
  *        Version:  1.0.0(2024年03月03日)
@@ -10,8 +10,8 @@
  *      ChangeLog:  1, Release initial version on "2024年03月03日 17时22分53秒"
  *                 
  ********************************************************************************/
-#ifndef SERVDBSQL_H
-#define SERVDBSQL_H
+#ifndef DBSQL_H
+#define DBSQL_H
 
 #define SQLBUFSIZE		128
 #define DATABUFSIZE		128

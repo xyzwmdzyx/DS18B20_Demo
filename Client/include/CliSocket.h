@@ -15,6 +15,7 @@
 
 #define ENDMSG "over"
 
+// 向服务器发送数据的函数
 int sendData(char **servip, int *servport, db_t *db, char sendbuf[DATABUFSIZE]);
 
 #endif

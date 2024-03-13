@@ -20,8 +20,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <sys/epoll.h>
-#include "ServLogger.h"
-#include "ServSql.h"
+#include "Logger.h"
+#include "Sql.h"
 #include "ServSocket.h"
 
 // 接收客户端数据的函数

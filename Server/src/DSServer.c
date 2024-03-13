@@ -17,9 +17,9 @@
 #include <string.h>
 #include <time.h>
 #include <errno.h>
-#include "ServLogger.h"
+#include "Logger.h"
 #include "ServParse.h"
-#include "ServSql.h"
+#include "Sql.h"
 #include "ServSocket.h"
 
 #define CONFIG_DEBUG
@@ -43,10 +43,10 @@ int main(int argc, char *argv[]) {
 	/****** 第一步：在本地初始化日志文件与数据库 ******/
 	
 	// 初始化日志文件
-	// 等级为INFO，输出到日志文件，且其路径为：“../log/Servlog.txt”
+	// 等级为INFO，输出到日志文件，且其路径为：“./log/Servlog.txt”
 	log.loglevel = LOG_INFO;
 	log.logtype = LOG_FILE;
-	log.logpath = "../log/Servlog.txt";
+	log.logpath = "./log/Servlog.txt";
 	
 	rv = logInit (&log);
 	if( rv < 0 ) {
@@ -64,8 +64,8 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	
-	// 初始化数据库，名为“ServDB”，其路径为“../data/ServDB.db”
-	db.dbname = "../data/ServDB.db";
+	// 初始化数据库，名为“ServDB”，其路径为“./data/ServDB.db”
+	db.dbname = "./data/ServDB.db";
 	db.tablename = "\0";
 	
 	rv = dbInit(&db);

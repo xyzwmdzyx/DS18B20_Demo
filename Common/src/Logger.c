@@ -2,7 +2,7 @@
  *      Copyright:  (C) 2024 Company
  *                  All rights reserved.
  *
- *       Filename:  CliLogger.c
+ *       Filename:  Logger.c
  *    Description:  This file is a log system file.
  *                 
  *        Version:  1.0.0(2024年03月01日)
@@ -16,7 +16,7 @@
 #include <time.h>
 #include <string.h>
 #include <stdarg.h>
-#include "CliLogger.h"
+#include "Logger.h"
 
 // 日至级别与其对应字符串的数组
 char *log_level_str[] = {"DEBUG", "INFO", "WARN", "ERROR", "FATAL"};

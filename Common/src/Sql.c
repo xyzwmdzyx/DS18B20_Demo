@@ -2,7 +2,7 @@
  *      Copyright:  (C) 2024 Company
  *                  All rights reserved.
  *
- *       Filename:  CliSql.c
+ *       Filename:  Sql.c
  *    Description:  This file is a database system file.
  *                 
  *        Version:  1.0.0(2024年03月03日)
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 #include <string.h>
-#include "CliSql.h"
+#include "Sql.h"
 
 // 定义执行sql语句的回调函数
 int callBack(void *NotUsed, int argc, char **argv, char **azColName) {
@@ -199,6 +199,37 @@ int dbCountData(db_t *db, char count[COUNTSIZE]) {
         return -2;
     }
     
+    sqlite3_close(sqdb);
+    
+    return 1;
+}
+
+// 查询一张表是否存在的函数
+int dbIfTableExist(db_t *db, char result[RESULTSIZE]) {
+
+	int			rv = -1;
+	sqlite3		*sqdb;
+	char 		sql[SQLBUFSIZE];
+	char		*err_msg = NULL;
+	
+	// 打开数据库
+	rv = sqlite3_open(db -> dbname, &sqdb);
+	if(rv != SQLITE_OK) {
+		sqlite3_close(sqdb);
+		return -1;
+	}
+	
+	// 查询表是否存在的sql语句
+	memset(sql, 0, sizeof(sql));
+	sprintf(sql, "SELECT COUNT(*) FROM sqlite_master WHERE name='%s' AND type='table';", db -> tablename);
+	
+	// 查询表是否存在
+    rv = sqlite3_exec(sqdb, sql, callBack, result, &err_msg);
+    if (rv != SQLITE_OK ) {
+        sqlite3_free(err_msg);
+        sqlite3_close(sqdb);
+        return -2;
+    }
     sqlite3_close(sqdb);
     
     return 1;

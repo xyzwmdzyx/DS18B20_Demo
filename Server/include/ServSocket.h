@@ -13,9 +13,9 @@
 #ifndef SERVSOCKET_H
 #define SERVSOCEKT_H
 
-#define BACKLOG 100
-#define MAXEVENTS 1024
-#define DEVNUM 	1024
+#define BACKLOG 	100
+#define MAXEVENTS 	1024
+#define DEVNUM 		1024
 
 // 接收客户端数据的函数
 int recivData(int *servport, log_t *log, db_t *db);
