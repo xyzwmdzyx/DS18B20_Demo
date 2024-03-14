@@ -27,28 +27,6 @@
 #define CHIP_SN_SIZE 64
 #define DS18B20_PATH_SIZE 128
 
-// 获取设备名称
-char *getDeviceName(int number) {
-
-	static char name_str[8];
-	sprintf(name_str, "Node%d", number);
-		
-	return name_str;
-}
-
-// 获取当前时间
-char *getLocalTime() {
-    
-    static char time_str[32];
-    time_t t = time(NULL);
-    struct tm *tm = localtime(&t);
-    
-    memset(time_str, 0, sizeof(time_str));
-    strftime(time_str, 32, "%Y-%m-%d %H:%M:%S", tm);
-    
-    return time_str;
-}
-
 // 读取温度值
 int getTemperature(float *temp) {
 

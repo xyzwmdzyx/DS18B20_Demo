@@ -14,13 +14,7 @@
 #ifndef CLIDSTEMP_H
 #define CLIDSTEMP_H
 
-#define W1_PATH "/sys/bus/w1/devices/"
-
-// 获取设备名称
-char *getDeviceName(int number);
-
-// 获取当前时间
-char  *getLocalTime();
+#define W1_PATH "/home/wmd/code/mysys/bus/w1/devices/"
 
 // 读取温度值
 int getTemperature(float *temp);

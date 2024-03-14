@@ -22,6 +22,7 @@
 #include "Sql.h"
 #include "CliSocket.h"
 
+// 向服务器发送数据的函数
 int sendData(char **servip, int *servport, db_t *db, char sendbuf[DATABUFSIZE]) {
 
 	int						rv = -1;

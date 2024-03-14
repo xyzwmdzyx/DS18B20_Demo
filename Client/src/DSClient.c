@@ -21,11 +21,10 @@
 #include "Sql.h"
 #include "CliParse.h"
 #include "CliTemperature.h"
+#include "CliPackage.h"
 #include "CliSocket.h"
  
 #define CONFIG_DEBUG
-
-#define DEVICENUMBER	1
 
 int main(int argc, char*argv[]) {
 
@@ -196,7 +195,7 @@ int main(int argc, char*argv[]) {
 		/****** 第五步：使用 Socket 向服务器端发送温度数据 ******/
 		// 先将所有要发送的内容组装成字符串，用 , 分割
 		memset(sendbuf, 0, sizeof(sendbuf));
-		sprintf(sendbuf, "%s,%s,%.2f", getDeviceName(DEVICENUMBER), getLocalTime(), temper);
+		packData(&temper, sendbuf);
 		LOG(&log, LOG_INFO, "Prepare send data success, data = %s\n", sendbuf);
 		// 与服务器建立连接
 		// 如果连接失败，则把本次读取的数据存入本地数据库
