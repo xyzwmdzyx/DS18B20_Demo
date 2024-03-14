@@ -29,8 +29,8 @@ install:
 clean:	
 	@rm -rf ./src/*.o
 	
-distclean: clean
-	@rm -rf *.log
+distclean:
+	@rm -rf ${DATA} ${LOG}
 	
 uninstall:
 	@rm -rf ${PREFIX} ${LIB} ${DATA} ${LOG} 

@@ -52,10 +52,10 @@ int main(int argc, char*argv[]) {
 	/****** 第一步：在本地初始化日志文件与数据库 ******/
 	
 	// 初始化日志文件
-	// 等级为INFO，输出到日志文件，且其路径为：“../log/Clilog.txt”
+	// 等级为INFO，输出到日志文件，且其路径为：“./log/Clilog.txt”
 	log.loglevel = LOG_INFO;
 	log.logtype = LOG_FILE;
-	log.logpath = "../log/Clilog.txt";
+	log.logpath = "./log/Clilog.txt";
 	
 	rv = logInit (&log);
 	if( rv < 0 ) {
@@ -76,7 +76,7 @@ int main(int argc, char*argv[]) {
 	
 	// 初始化数据库，名为“CliDB”；该数据库包含一张表，名为“TempTable”
 	// 该表包含一个字段，名为“send_data”，类型为“TEXT”
-	db.dbname = "../data/CliDB.db";
+	db.dbname = "./data/CliDB.db";
 	db.tablename = "TempTable";
 	
 	rv = dbInit(&db);
