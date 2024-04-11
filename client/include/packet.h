@@ -22,9 +22,9 @@
 
 typedef struct pack_info_s
 {
-    char          devid[DEVID_LEN];  // device ID
-    struct tm     sample_time;       // sample time
-    float         temper;            // sample temperature
+    char          	devid[DEVID_LEN];  		// device ID
+    char	     	sample_time[TIME_LEN];  // sample time
+    float         	temper;            		// sample temperature
 } pack_info_t;
 
 // packet function pointer type
@@ -43,10 +43,11 @@ extern int getDevid(char *devid, int size, int sn);
 
 /*	description:	get sample time
  *	 input args:	
- *					$ptm : struct whitch store time information  
+ *					$sample_time : time information buffer
+ *					$size        : buffer size
  * return value:    <0: failure   0: success
  */
-extern int getTime(struct tm *ptm);
+int getTime(char *sample_time, int size);
 
 
 /*	description:	packet segment data into text, include device ID, sample time, sample temper
@@ -57,16 +58,6 @@ extern int getTime(struct tm *ptm);
  * return value:    <0: failure   >0: success
  */
 extern int packetSegmentData(pack_info_t *pack_info, char *pack_buf, int size);
-
-
-/*	description:	packet segment data into json, include device ID, sample time, sample temper
- *	 input args:	
- *					$pack_info : struct whitch store segment data
- *                  $pack_buf  : buffer whitch will store packeted data
- *                  $size      : buffer size 
- * return value:    <0: failure   >0: success
- */
-extern int packetJsonData(pack_info_t *pack_info, char *pack_buf, int size);
 
 
 #endif

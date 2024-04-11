@@ -11,4 +11,4 @@ LD_LIBRARY_PATH=$SCRIPT_DIR/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 
 # 启动服务器程序
-./bin/Client $PARSE
+./bin/client $PARSE

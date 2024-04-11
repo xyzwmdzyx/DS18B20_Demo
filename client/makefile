@@ -1,19 +1,19 @@
-CFLAGS += -I ./include -I ../Common/include
-LDFLAGS = -Llib -lCliModule -lsqlite3
+CFLAGS += -I ./include -I ../common/include
+LDFLAGS = -Llib -lcliModule -lsqlite3
 
 PREFIX ?= ./bin
 LIB = ./lib
 DATA = ./data
 LOG = ./log
 
-PROGRAM_NAME = Client
-LIB_NAME = CliModule
+PROGRAM_NAME = client
+LIB_NAME = cliModule
 
-EXCLUDE = ./src/DSClient.c
-SRC = $(filter-out $(EXCLUDE), $(wildcard ./src/*.c)) $(wildcard ../Common/src/*.c)
+EXCLUDE = ./src/client.c
+SRC = $(filter-out $(EXCLUDE), $(wildcard ./src/*.c)) $(wildcard ../common/src/*.c)
 
 all: shared_lib clean
-	@gcc ${CFLAGS} ./src/DSClient.c -o ${PROGRAM_NAME} ${LDFLAGS}
+	@gcc ${CFLAGS} ./src/client.c -o ${PROGRAM_NAME} ${LDFLAGS}
 
 shared_lib:
 	@gcc ${CFLAGS} -fPIC -shared -o lib${LIB_NAME}.so $(SRC)
